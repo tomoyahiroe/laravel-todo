@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "junstyle.php-cs-fixer",
+		"php-cs-fixer.onsave": true,
+		"php-cs-fixer.executablePath": "${workspaceFolder}/vendor/bin/php-cs-fixer",
+	}
+}
