@@ -41,4 +41,10 @@ class TodoController extends Controller
         Todo::where('id', $request->id)->update($formInput);
         return redirect('/');
     }
+
+    public function delete(Request $request)
+    {
+        Todo::find($request->id)->delete();
+        return redirect('/');
+    }
 }
