@@ -11,7 +11,7 @@ i
 
 <body>
   <h1>@yield('title')</h1>
-  <div class="content">
+  <div class="component-body">
     @yield('content')
   </div>
 </body>
@@ -23,6 +23,10 @@ body {
   min-height: 100vh;
   background-color: #1d2630;
   color: #f3f3f3;
+}
+
+.component-body {
+  margin: 20px;
 }
 </style>
 
