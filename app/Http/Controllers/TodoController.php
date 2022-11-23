@@ -22,4 +22,23 @@ class TodoController extends Controller
 
         return redirect('/');
     }
+
+    public function edit(Request $request)
+    {
+        $formInput = Todo::find($request->id);
+        $allTodo = Todo::all();
+        $param = [
+            'input' => $formInput,
+            'allTodo' => $allTodo,
+        ];
+        return view('index', $param);
+    }
+
+    public function update(TodoRequest $request)
+    {
+        $formInput = $request->all();
+        unset($formInput['_token']);
+        Todo::where('id', $request->id)->update($formInput);
+        return redirect('/');
+    }
 }

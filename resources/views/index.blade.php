@@ -8,6 +8,27 @@
 
 @section('content')
 <div class="todo-app_wrapper">
+  @if(isSet($input))
+  <form action="/update" method="POST">
+    <table>
+      @csrf
+      <input type="hidden" name="id" value="{{$input->id}}" />
+      <tr>
+        <th>todo</th>
+        <td><input type="text" name="todo" value="{{$input->todo}}" required></td>
+      </tr>
+      <tr>
+        <th>description</th>
+        <td><input type="text" name="description" value="{{$input->description}}"></td>
+      </tr>
+      <tr>
+        <th>due</th>
+        <td><input type="date" name="due" value="{{$input->due}}"></td>
+    </table>
+    <input type="submit" />
+  </form>
+
+  @else
   <form action="/create" method="POST">
     <table>
       @csrf
@@ -22,10 +43,11 @@
       <tr>
         <th>due</th>
         <td><input type="date" name="due"></td>
-      </tr>
     </table>
     <input type="submit" />
   </form>
+
+  @endif
 
 
   <div class="todo-list__container">
@@ -38,7 +60,7 @@
         <td class="todo-name">{{$todo->todo}}</td>
         <td>: {{$todo->description}}</td>
         <td>due: {{$todo->due}}</td>
-        <td><a href="/edit?id={{$todo->id}}">edit</a></td>
+        <td><a href="/update?id={{$todo->id}}">edit</a></td>
         <td><a href="/delete?id={{$todo->id}}">done!</a></td>
       </tr>
       @endforeach
