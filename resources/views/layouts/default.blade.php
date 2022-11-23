@@ -1,4 +1,3 @@
-i
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +22,11 @@ body {
   min-height: 100vh;
   background-color: #1d2630;
   color: #f3f3f3;
+}
+
+h1 {
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .component-body {
