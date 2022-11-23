@@ -24,6 +24,7 @@
         <td><input type="date" name="due"></td>
       </tr>
     </table>
+    <input type="submit" />
   </form>
 
 
