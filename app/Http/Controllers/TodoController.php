@@ -18,8 +18,8 @@ class TodoController extends Controller
     public function create(TodoRequest $request)
     {
         $todoData = $request->all();
+        unset($todoData['_token']);
         Todo::create($todoData);
-
         return redirect('/');
     }
 
@@ -36,9 +36,9 @@ class TodoController extends Controller
 
     public function update(TodoRequest $request)
     {
-        $formInput = $request->all();
-        unset($formInput['_token']);
-        Todo::where('id', $request->id)->update($formInput);
+        // $formInput = $request->all();
+        // unset($formInput['_token']);
+        // Todo::where('id', $request->id)->update($formInput);
         return redirect('/');
     }
 

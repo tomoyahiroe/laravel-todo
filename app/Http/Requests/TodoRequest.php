@@ -24,8 +24,9 @@ class TodoRequest extends FormRequest
     public function rules()
     {
         return [
-            'todo' => 'required',
-            'due' => 'date',
+            'todo' => 'required|max:20',
+            'description' => 'nullable|max:50',
+            'due' => 'nullable|date',
         ];
     }
 }
