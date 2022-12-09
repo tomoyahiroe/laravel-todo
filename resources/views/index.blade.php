@@ -12,19 +12,19 @@
       @csrf
       <input type="hidden" name="id" value="{{$input->id}}" />
       <tr>
-        <th>Todo</th>
+        <th><label for="todo">Todo</label></th>
         <td><input type="text" name="todo" value="{{$input->todo}}" required></td>
       </tr>
       <tr>
-        <th>Description</th>
+        <th><label for="description">Description</label></th>
         <td><textarea name="description" cols="50" rows="5">{{$input->description}}</textarea></td>
       </tr>
       <tr>
-        <th>Due</th>
+        <th><label for="due">Due</label></th>
         <td><input type="date" name="due" value="{{$input->due}}"></td>
       </tr>
     </table>
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Update" />
   </form>
 
   @else
@@ -33,19 +33,19 @@
     <table class="todo-form__table">
       @csrf
       <tr>
-        <th>Todo</th>
+        <th><label for="todo">Todo</label></th>
         <td><input type="text" name="todo" required></td>
       </tr>
       <tr>
-        <th>Description</th>
+        <th><label for="description">Description</label></th>
         <td><textarea name="description" cols="50" rows="5"></textarea></td>
       </tr>
       <tr>
-        <th>Due</th>
+        <th><label for="due">Due</label></th>
         <td><input type="date" name="due"></td>
       </tr>
     </table>
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Create" />
   </form>
 
   @endif
@@ -134,10 +134,6 @@
     fill: #1d2630;
     transition: 1s;
   }
-
-  .todo-edit__button svg:hover {}
-
-  .todo-delete__button:hover {}
 </style>
 
 @endsection
