@@ -17,11 +17,12 @@
       </tr>
       <tr>
         <th>Description</th>
-        <td><textarea name="description" cols="100" rows="5">{{$input->description}}</textarea></td>
+        <td><textarea name="description" cols="50" rows="5">{{$input->description}}</textarea></td>
       </tr>
       <tr>
         <th>Due</th>
         <td><input type="date" name="due" value="{{$input->due}}"></td>
+      </tr>
     </table>
     <input type="submit" value="Submit" />
   </form>
@@ -37,11 +38,12 @@
       </tr>
       <tr>
         <th>Description</th>
-        <td><textarea name="description" cols="100" rows="5"></textarea></td>
+        <td><textarea name="description" cols="50" rows="5"></textarea></td>
       </tr>
       <tr>
         <th>Due</th>
         <td><input type="date" name="due"></td>
+      </tr>
     </table>
     <input type="submit" value="Submit" />
   </form>
@@ -64,9 +66,10 @@
           </a>
         </td>
         <td>
-          <a class="todo-delete__button" href="/delete?id={{$todo->id}}">
-            {!! file_get_contents(public_path('icons/done_icon.svg')) !!}
-          </a>
+          <form action="/delete?id={{$todo->id}}" method="post" id="{{$todo->id}}">
+            @csrf
+            <button class="todo-delete__button">{!! file_get_contents(public_path('icons/done_icon.svg')) !!}</button>
+          </form>
         </td>
       </tr>
       @endforeach
@@ -115,6 +118,14 @@
     height: 32px;
     fill: #1d2630;
     transition: 1s;
+  }
+
+  .todo-delete__button {
+    border: none;
+    border-radius: 50%;
+    width: fit-content;
+    padding: 0;
+    background-color: #c0c0c0;
   }
 
   .todo-delete__button svg {
