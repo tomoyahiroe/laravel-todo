@@ -53,28 +53,30 @@
 
   <div class="todo-list__container">
     <h3>Todo List</h3>
-    @if(isSet($allTodo))
-    <table class="todo-table">
-      @foreach($allTodo as $todo)
-      <tr class="todo-table__row">
-        <td class="todo-name">{{$todo->todo}}</td>
-        <td class="todo-description">: {{$todo->description}}</td>
-        <td>Due: {{$todo->due}}</td>
-        <td>
-          <a class="todo-edit__button" href="/update?id={{$todo->id}}">
-            {!! file_get_contents(public_path('icons/edit_icon.svg')) !!}
-          </a>
-        </td>
-        <td>
-          <form action="/delete?id={{$todo->id}}" method="post" id="{{$todo->id}}">
-            @csrf
-            <button class="todo-delete__button">{!! file_get_contents(public_path('icons/done_icon.svg')) !!}</button>
-          </form>
-        </td>
-      </tr>
-      @endforeach
-    </table>
-    @endif
+    <div class="todo-table__scroll-wrapper">
+      @if(isSet($allTodo))
+      <table class="todo-table">
+        @foreach($allTodo as $todo)
+        <tr class="todo-table__row">
+          <td class="todo-name">{{$todo->todo}}</td>
+          <td class="todo-description">: {{$todo->description}}</td>
+          <td>Due: {{$todo->due}}</td>
+          <td>
+            <a class="todo-edit__button" href="/update?id={{$todo->id}}">
+              {!! file_get_contents(public_path('icons/edit_icon.svg')) !!}
+            </a>
+          </td>
+          <td>
+            <form action="/delete?id={{$todo->id}}" method="post" id="{{$todo->id}}">
+              @csrf
+              <button class="todo-delete__button">{!! file_get_contents(public_path('icons/done_icon.svg')) !!}</button>
+            </form>
+          </td>
+        </tr>
+        @endforeach
+      </table>
+      @endif
+    </div>
   </div>
 </div>
 
@@ -83,6 +85,7 @@
     background-color: #c0c0c0;
     margin-bottom: 48px;
     padding: 32px;
+    width: 90vw;
     max-width: 1024px;
     box-sizing: border-box;
     color: #1d2630;
@@ -94,30 +97,43 @@
   }
 
   .todo-form__table {
-    border-spacing: 8px;
+    border-spacing: 4px;
   }
 
   .todo-form th {
     text-align: left;
   }
 
+  .todo-table__scroll-wrapper {
+    height: 320px;
+    overflow: scroll;
+  }
+
   .todo-table {
-    width: 100%;
+    width: 90vw;
     max-width: 1024px;
-    border-spacing: 48px;
+    border-spacing: 24px;
     background-color: #c0c0c0;
     color: #1d2630;
+  }
+
+  .todo-table__row {
+    width: 100%;
   }
 
   .todo-name {
     font-weight: bold;
   }
 
+  .todo-description {
+    max-width: 480px;
+    width: 40%;
+  }
+
   .todo-edit__button svg {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     fill: #1d2630;
-    transition: 1s;
   }
 
   .todo-delete__button {
@@ -132,7 +148,6 @@
     width: 32px;
     height: 32px;
     fill: #1d2630;
-    transition: 1s;
   }
 </style>
 
