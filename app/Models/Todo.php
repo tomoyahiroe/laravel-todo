@@ -13,5 +13,6 @@ class Todo extends Model
         'todo',
         'description',
         'due',
+        'updated_at'
     ];
 }
