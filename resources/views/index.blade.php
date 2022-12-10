@@ -8,6 +8,10 @@
   @if(isSet($input))
   <h3>Edit Todo</h3>
   <form class="todo-form" action="/update" method="POST">
+    @foreach ($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+
     <table class="todo-form__table">
       @csrf
       <input type="hidden" name="id" value="{{$input->id}}" />
@@ -30,6 +34,10 @@
   @else
   <h3>Create Todo</h3>
   <form class="todo-form" action="/create" method="POST">
+    @foreach ($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+
     <table class="todo-form__table">
       @csrf
       <tr>
