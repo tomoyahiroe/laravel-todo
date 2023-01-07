@@ -22,3 +22,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::group(['prefix' => 'todo', 'middleware' => 'auth'], function() {
+    Route::get('/', [TodoController::class, 'index']);
+    Route::post('/create', [TodoController::class, 'create']);
+    Route::post('/update', [TodoController::class, 'update']);
+    Route::post('/delete', [TodoController::class, 'delete']);
+});
