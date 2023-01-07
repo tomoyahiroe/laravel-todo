@@ -15,11 +15,11 @@ class CreateTodosTable extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tag_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->string('todo', 100);
-            $table->text('description')->nullable();
-            $table->date('due')->nullable();
-            $table->datetime('created_at')->useCurrent()->nullable();
-            $table->datetime('updated_at')->useCurrent()->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('updated_at')->useCurrent()->nullable();
         });
     }
 
