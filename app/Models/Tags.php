@@ -5,12 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Todo extends Model
+class Tags extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'todo',
-        'updated_at'
-    ];
+    protected $fillable = ['tag_name'];
 }
