@@ -7,9 +7,9 @@
 <section class="auth-card">
   <h2> Please Login or Register</h2>
   <div class="button-container">
-    <a href="/login" class="login-button button">
+    <a href="{{ route('login') }}" class="login-button button">
     Login</a>
-    <a href="/register" class="register-button button">
+    <a href="{{ route('register') }}" class="register-button button">
     Register</a>
   </div>
 </section>
