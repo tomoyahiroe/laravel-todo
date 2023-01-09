@@ -10,8 +10,9 @@ class TodoController extends Controller
 {
     public function index()
     {
-        $todos = Todo::all();
-        return view('index', ['todos' => $todos]);
+        return "Good !!";
+        // $todos = Todo::all();
+        // return view('index', ['todos' => $todos]);
     }
 
     public function create(TodoRequest $request)
