@@ -11,6 +11,21 @@ class Todo extends Model
 
     protected $fillable = [
         'todo',
+        'tag_id',
         'updated_at'
     ];
+
+    protected $guarded = [
+        'id',
+    ];
+
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function tag() {
+        return $this->belongsTo(Tags::class);
+    }
+
 }
